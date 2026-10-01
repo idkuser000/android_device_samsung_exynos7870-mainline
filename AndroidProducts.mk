@@ -4,7 +4,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/exynos7870/lineage_exynos7870.mk
+    $(LOCAL_DIR)/on7xelte_mainline/lineage_on7xelte_mainline.mk
 
 $(foreach build_type, user userdebug eng, \
-    $(eval COMMON_LUNCH_CHOICES += lineage_exynos7870-$(build_type)))
+    $(eval COMMON_LUNCH_CHOICES += lineage_on7xelte_mainline-$(build_type)))

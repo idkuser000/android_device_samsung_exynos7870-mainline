@@ -1,0 +1,37 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+on early-init
+    setprop sys.usb.config adb
+
+# Mount
+on fs
+    mount_all --early
+
+on late-fs
+    mount_all --late
+
+# Kernel module loading
+on early-boot
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -s -d /vendor/lib/modules --all=/vendor/etc/modules.load.normal
+
+service boot_dmesg_logger /system/bin/sh -c "dmesg -w > /data/boot-debug/dmesg.log 2>&1"
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
+service boot_logcat_logger /system/bin/sh -c "logcat -b all -v threadtime > /data/boot-debug/logcat.log 2>&1"
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
+on post-fs-data
+    mkdir /data/boot-debug 0770 root root
+    start boot_dmesg_logger
+    start boot_logcat_logger

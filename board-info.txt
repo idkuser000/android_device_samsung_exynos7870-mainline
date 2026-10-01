@@ -1,0 +1,1 @@
+require board=exynos7870-mainline
