@@ -44,10 +44,11 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/mainline/android-mainline
-TARGET_KERNEL_CONFIG := gki_defconfig
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_KERNEL_SOURCE := kernel/mainline/exynos7870-mainline
+
+TARGET_KERNEL_CONFIG := \
+    defconfig \
+    exynos7870.config
 
 TARGET_KERNEL_CONFIG_EXT := \
     kernel/mainline/configs/fragments/android-base-pre/common.config \
