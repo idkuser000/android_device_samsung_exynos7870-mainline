@@ -4,6 +4,7 @@
 #
 
 DEVICE_PATH := device/samsung/exynos7870-mainline
+TARGET_INITIAL_BRINGUP := true
 
 # Inherit from mainline/common
 TARGET_SUPPORTS_SUSPEND := false
