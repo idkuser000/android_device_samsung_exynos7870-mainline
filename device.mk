@@ -4,15 +4,12 @@
 #
 
 DEVICE_PATH := device/samsung/exynos7870-mainline
+
 TARGET_INITIAL_BRINGUP := true
 
 # Inherit from mainline/common
-TARGET_SUPPORTS_SUSPEND := false
 include device/mainline/common/optional/options.mk
 $(call inherit-product, device/mainline/common/mainline_common.mk)
-
-# Bootanimation
-TARGET_BOOTANIMATION_HALF_RES := true
 
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
@@ -20,6 +17,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 # HIDL
 PRODUCT_PACKAGES += \
     vndservicemanager
+
+# Bootanim
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Init
 PRODUCT_PACKAGES += \
@@ -35,10 +35,6 @@ PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlays/overlay
-
-# Screen density
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 33
