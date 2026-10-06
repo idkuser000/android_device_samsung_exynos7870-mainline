@@ -4,22 +4,22 @@
 //
 
 prebuilt_etc {
-    name: "fstab.basic_x86_64_pc",
-    src: "fstab.basic_x86_64_pc",
+    name: "fstab.exynos7870",
+    src: "fstab.exynos7870",
     vendor: true,
     ramdisk_available: true,
 }
 
 prebuilt_etc {
-    name: "init.basic_x86_64_pc.rc",
-    src: "init.basic_x86_64_pc.rc",
+    name: "init.exynos7870.rc",
+    src: "init.exynos7870.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "init.recovery.basic_x86_64_pc.rc",
-    src: "init.recovery.basic_x86_64_pc.rc",
+    name: "init.recovery.exynos7870.rc",
+    src: "init.recovery.exynos7870.rc",
     sub_dir: "init",
     recovery: true,
 }
