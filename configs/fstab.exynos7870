@@ -1,7 +1,10 @@
+/dev/block/by-name/boot /boot emmc defaults defaults
+/dev/block/by-name/recovery /recovery emmc defaults defaults
 
-/dev/block/by-name/metadata /metadata ext4 <opts> check,formattable,first_stage_mount,metadata_csum
+/dev/block/by-name/metadata /metadata ext4 nodev,noatime,nosuid,discard,data=journal,commit=1 check,formattable,first_stage_mount,metadata_csum
 
 /dev/block/by-name/system   /system   ext4 noatime,ro first_stage_mount
 /dev/block/by-name/vendor   /vendor   ext4 noatime,ro first_stage_mount
 
-/dev/block/by-name/userdata /data     f2fs <opts> latemount,check,quota,formattable
+/dev/block/by-name/userdata /data ext4 nodev,noatime,nosuid,discard latemount,check,quota,formattable
+/dev/block/by-name/userdata /data     f2fs nodev,noatime,nosuid,discard,reserve_root=32768 latemount,check,quota,formattable
