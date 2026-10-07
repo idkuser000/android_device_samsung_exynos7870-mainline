@@ -23,3 +23,9 @@ prebuilt_etc {
     sub_dir: "init",
     recovery: true,
 }
+
+prebuilt_etc {
+    name: "ueventd.exynos7870.rc",
+    src: "ueventd.exynos7870.rc",
+    vendor: true,
+}
