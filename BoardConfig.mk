@@ -12,18 +12,12 @@ include device/mainline/common/BoardConfigMainlineCommon.mk
 AB_OTA_UPDATER := false
 
 # Architecture
-TARGET_ARCH := arm
+TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_VARIANT_RUNTIME := cortex-a53
-
-# mkbootimg
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_BOOTLOADER_BOARD_NAME := exynos7870-mainline
 
 # Boot parameters
 BOARD_KERNEL_CMDLINE += \
@@ -45,6 +39,9 @@ TARGET_KERNEL_CONFIG := \
     defconfig \
     exynos7870.config
 
+TARGET_DTB_LIST_WILDCARD := \
+    exynos/exynos7870-on7xelte
+
 TARGET_KERNEL_CONFIG_EXT := \
     kernel/mainline/configs/fragments/android-base-pre/common.config \
     kernel/mainline/configs/fragments/android-base-pre/arm64.config \
@@ -55,6 +52,8 @@ TARGET_KERNEL_CONFIG_EXT := \
     kernel/mainline/configs/fragments/n/disable-clang-hardening-features.config \
     kernel/mainline/configs/fragments/n/faster-build-time.config
 
+BOARD_KERNEL_IMAGE_NAME := Image
+
 # OTA
 TARGET_SKIP_OTA_PACKAGE := true
 
@@ -62,7 +61,7 @@ TARGET_SKIP_OTA_PACKAGE := true
 BOARD_USES_METADATA_PARTITION := true
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 63606784
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2871279104
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 54618209280
 BOARD_VENDORIMAGE_PARTITION_SIZE := 434596224
