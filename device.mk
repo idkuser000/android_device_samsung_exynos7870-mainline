@@ -45,4 +45,8 @@ PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(DEVICE_PATH) \
+    kernel/mainline/configs
+
+# use_memfd.rc
+PRODUCT_PACKAGES += use_memfd.rc
