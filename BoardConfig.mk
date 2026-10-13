@@ -33,21 +33,24 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/mainline/android-mainline
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_KERNEL_IMAGE_NAME := Image.gz
+TARGET_KERNEL_SOURCE := kernel/mainline/exynos7870-mainline
+TARGET_DTB_LIST_WILDCARD := exynos/*
 
 TARGET_KERNEL_CONFIG := \
-    gki_defconfig \
+    defconfig \
     exynos7870.config
 
-TARGET_DTB_LIST_WILDCARD := \
-    exynos/exynos7870-on7xelte
-
 TARGET_KERNEL_CONFIG_EXT := \
+    kernel/mainline/configs/fragments/android-base-pre/common.config \
+    kernel/mainline/configs/fragments/android-base-pre/arm64.config \
+    kernel/configs/b/android-6.12/android-base.config \
+    kernel/mainline/configs/fragments/android-base-conditional/CONFIG_ARM64-y.config \
+    kernel/mainline/configs/fragments/common.config \
     kernel/mainline/configs/fragments/y/fbcon.config \
     kernel/mainline/configs/fragments/n/disable-clang-hardening-features.config \
     kernel/mainline/configs/fragments/n/faster-build-time.config
-
-BOARD_KERNEL_IMAGE_NAME := Image
 
 # OTA
 TARGET_SKIP_OTA_PACKAGE := true
@@ -66,8 +69,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 TARGET_BOARD_PLATFORM := exynos7870-mainline
 
 # Ramdisk
-BOARD_RAMDISK_USE_LZMA := true
-LZMA_COMPRESSION := -9
+BOARD_RAMDISK_USE_LZ4 := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.exynos7870
