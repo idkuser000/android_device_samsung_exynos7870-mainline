@@ -7,7 +7,13 @@ prebuilt_etc {
     name: "fstab.exynos7870",
     src: "fstab.exynos7870",
     vendor: true,
-    ramdisk_available: true,
+}
+
+prebuilt_etc {
+    name: "fstab.exynos7870.ramdisk",
+    src: "fstab.exynos7870",
+    filename: "fstab.exynos7870",
+    ramdisk: true,
 }
 
 prebuilt_etc {
