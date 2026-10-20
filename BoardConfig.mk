@@ -37,6 +37,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Kernel
+BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_SOURCE := kernel/mainline/exynos7870-mainline
 TARGET_DTB_LIST_WILDCARD := exynos/*
 
@@ -70,14 +71,8 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # Platform
 TARGET_BOARD_PLATFORM := exynos7870-mainline
 
-# Ramdisk
-BOARD_RAMDISK_USE_LZ4 := true
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.exynos7870
-
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/misc
 
 # VINTF
 DEVICE_MANIFEST_FILE := \
