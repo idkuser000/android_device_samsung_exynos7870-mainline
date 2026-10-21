@@ -3,10 +3,13 @@
 set -e
 
 PREBUILTS_PATH="${DEVICE_PATH}/prebuilts"
-UNILOADER_PATH="${DEVICE_PATH}"/uniLoader
+UNILOADER_PATH=external/uniLoader
 
 export ARCH=aarch64
 export CROSS_COMPILE=aarch64-linux-gnu-
+
+rm -rf $UNILOADER_PATH
+git clone https://github.com/idkuser000/uniLoader $UNILOADER_PATH
 
 cp "$OUT"/kernel $UNILOADER_PATH/blob/Image
 cp "$OUT"/ramdisk-recovery.img $UNILOADER_PATH/blob/ramdisk
