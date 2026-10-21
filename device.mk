@@ -6,6 +6,7 @@
 DEVICE_PATH := device/samsung/exynos7870-mainline
 
 TARGET_INITIAL_BRINGUP := true
+TARGET_USES_FRAMEBUFFER_DISPLAY := true
 
 # Inherit from mainline/common
 include device/mainline/common/optional/options.mk
