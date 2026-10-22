@@ -5,13 +5,7 @@
 
 on early-init
     setprop ro.adb.secure.recovery 0
-
-on post-fs
-    mkdir /dev/usb-ffs 0770 shell shell
-    mkdir /dev/usb-ffs/adb 0770 shell shell
-    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
+    stop recovery
 
 on boot
-    setprop sys.usb.configfs 1
-    setprop sys.usb.controller 13600000.usb
     setprop sys.usb.config adb
