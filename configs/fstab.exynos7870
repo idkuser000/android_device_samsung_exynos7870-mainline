@@ -3,7 +3,7 @@
 
 /dev/block/platform/13540000.dwmmc0/by-name/metadata /metadata ext4 nodev,noatime,nosuid,discard,data=journal,commit=1 check,formattable,first_stage_mount,metadata_csum
 
-/dev/block/platform/13540000.dwmmc0/by-name/OTA /misc emmc defaults defaults
+/dev/block/platform/13540000.dwmmc0/by-name/misc /misc emmc defaults defaults
 
 /dev/block/platform/13540000.dwmmc0/by-name/system /system ext4 noatime,ro first_stage_mount
 /dev/block/platform/13540000.dwmmc0/by-name/vendor /vendor ext4 noatime,ro first_stage_mount
