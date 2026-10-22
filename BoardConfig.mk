@@ -25,7 +25,6 @@ BOARD_KERNEL_CMDLINE += \
     $(MAINLINE_COMMON_KERNEL_PARAMS) \
     androidboot.hardware=exynos7870 \
     androidboot.verifiedbootstate=orange \
-    androidboot.insecure_adb=true \
     console=tty0
 
 # Bootloader
