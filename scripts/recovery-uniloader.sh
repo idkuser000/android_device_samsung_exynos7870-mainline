@@ -20,8 +20,10 @@ cd "$UNILOADER_PATH"
 make ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE on7xelte_defconfig
 make ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE
 
+cd ../..
+
 # Making boot.img from uniLoader binary
 mv $OUT/recovery.img $OUT/recovery.img.orig
-mkbootimg -o $OUT/recovery-uniloader.img --kernel $UNILOADER_PATH/uniLoader --cmdline "androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=any androidboot.selinux=permissive binder.impl=rust firmware_class.path=/vendor/firmware/ log_buf_len=4M loop.max_part=7 printk.devkmsg=on rw vt.global_cursor_default=0 audit=0 panic=-1 androidboot.hardware=exynos7870 androidboot.verifiedbootstate=orange console=tty0"
+mkbootimg -o $OUT/recovery-uniloader.img --kernel $UNILOADER_PATH/uniLoader --cmdline "androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=any androidboot.selinux=permissive binder.impl=rust firmware_class.path=/vendor/firmware/ log_buf_len=4M loop.max_part=7 printk.devkmsg=on rw vt.global_cursor_default=0 audit=0 panic=-1 androidboot.hardware=exynos7870 androidboot.verifiedbootstate=orange androidboot.insecure_adb=true console=tty0"
 
 echo "uniLoader with recovery ramdisk built!"
