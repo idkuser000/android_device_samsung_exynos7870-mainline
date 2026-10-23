@@ -5,7 +5,8 @@
 
 on early-init
     setprop ro.adb.secure.recovery 0
-    stop recovery
 
 on boot
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller 13600000.usb
     setprop sys.usb.config adb
