@@ -8,5 +8,5 @@ on early-init
 
 on boot
     setprop sys.usb.configfs 1
-    setprop sys.usb.controller 13600000.usb
+    setprop sys.usb.controller 13600000.dwc3
     setprop sys.usb.config adb
