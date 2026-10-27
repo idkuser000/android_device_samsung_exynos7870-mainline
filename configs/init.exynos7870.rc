@@ -8,8 +8,11 @@ import /vendor/etc/init/hw/init.mainline.rc     # the common one
 on post-fs
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -s -d /vendor/lib/modules --all=/vendor/etc/modules.load.normal
 
+# Mount
 on fs
-    mount_all /vendor/etc/fstab.exynos7870 --early
+    # Mount everything that does not require fsck
+    mount_all --early
 
 on late-fs
-    mount_all /vendor/etc/fstab.exynos7870 --late
+    # Mount RW partitions which need run fsck
+    mount_all --late
