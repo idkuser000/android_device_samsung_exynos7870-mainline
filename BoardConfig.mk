@@ -25,7 +25,9 @@ BOARD_KERNEL_CMDLINE += \
     $(MAINLINE_COMMON_KERNEL_PARAMS) \
     androidboot.hardware=exynos7870 \
     androidboot.verifiedbootstate=orange \
-    console=tty0
+    console=tty0 \
+    clk_ignore_unused \
+    pd_ignore_unused
 
 # Bootloader
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -39,7 +41,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_SOURCE := kernel/mainline/exynos7870-mainline
-TARGET_DTB_LIST_WILDCARD := exynos/*
+TARGET_DTB_LIST_WILDCARD := exynos/exynos7870-*
 
 TARGET_KERNEL_CONFIG := \
     defconfig \
