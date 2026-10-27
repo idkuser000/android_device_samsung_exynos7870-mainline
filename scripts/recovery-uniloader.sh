@@ -8,7 +8,7 @@ export ARCH=aarch64
 export CROSS_COMPILE=aarch64-linux-gnu-
 
 rm -rf $UNILOADER_PATH
-git clone https://github.com/idkuser000/uniLoader $UNILOADER_PATH
+git clone https://github.com/ivoszbg/uniLoader $UNILOADER_PATH
 
 cp $OUT/kernel $UNILOADER_PATH/blob/Image
 cp $OUT/ramdisk-recovery.img $UNILOADER_PATH/blob/ramdisk
@@ -23,7 +23,7 @@ make ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE
 cd ../..
 
 # Making boot.img from uniLoader binary
-mv $OUT/recovery.img $OUT/recovery.img.orig
+mv $OUT/recovery.img $OUT/recovery.img.original
 mkbootimg -o $OUT/recovery-uniloader.img --kernel $UNILOADER_PATH/uniLoader --cmdline "androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=any androidboot.selinux=permissive binder.impl=rust firmware_class.path=/vendor/firmware/ log_buf_len=4M loop.max_part=7 printk.devkmsg=on rw vt.global_cursor_default=0 audit=0 panic=-1 androidboot.hardware=exynos7870 androidboot.verifiedbootstate=orange console=tty0"
 
 echo "uniLoader with recovery ramdisk built!"
