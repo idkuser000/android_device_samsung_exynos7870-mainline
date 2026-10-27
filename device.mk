@@ -27,7 +27,6 @@ PRODUCT_PACKAGES += \
     fstab.exynos7870 \
     fstab.exynos7870.ramdisk \
     init.exynos7870.rc \
-    init.recovery.exynos7870.rc \
     ueventd.exynos7870.rc
 
 # Kernel
